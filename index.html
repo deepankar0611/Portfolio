@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #5e72e4, #a777e3);
             color: white;
@@ -77,7 +76,6 @@
             color: #ffd700;
         }
 
-        /* Sections */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -103,7 +101,6 @@
             animation: expandLine 1s ease;
         }
 
-        /* Profile */
         .profile p {
             font-size: 1.2rem;
             background: white;
@@ -113,7 +110,6 @@
             animation: scaleIn 1s ease;
         }
 
-        /* Cards */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -134,6 +130,8 @@
         .card:nth-child(2) { --i: 2; }
         .card:nth-child(3) { --i: 3; }
         .card:nth-child(4) { --i: 4; }
+        .card:nth-child(5) { --i: 5; }
+        .card:nth-child(6) { --i: 6; }
 
         .card:hover {
             transform: translateY(-15px) scale(1.03);
@@ -173,49 +171,15 @@
             transform: translateX(5px);
         }
 
-        /* Animations */
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            50% { transform: translateX(100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
-        }
+        @keyframes shimmer { 0% { transform: translateX(-100%) rotate(30deg); } 50% { transform: translateX(100%) rotate(30deg); } 100% { transform: translateX(100%) rotate(30deg); } }
+        @keyframes slideInFromTop { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes cardPop { from { opacity: 0; transform: translateY(50px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes expandLine { from { width: 0; } to { width: 60px; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        @keyframes slideInFromTop {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes cardPop {
-            from { opacity: 0; transform: translateY(50px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @keyframes expandLine {
-            from { width: 0; }
-            to { width: 60px; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             header { padding: 4rem 1rem; }
             .profile-img { width: 140px; height: 140px; }
@@ -228,7 +192,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <img src="1.jpeg" alt="Deepankar Singh" class="profile-img">
         <h1>Deepankar Singh</h1>
@@ -241,67 +204,28 @@
         </div>
     </header>
 
-    <!-- Profile -->
     <section class="profile">
         <h2>About Me</h2>
         <p>Dynamic MCA graduate and Mobile App Developer with expertise in Flutter and Firebase. Skilled in Python, Java, and REST APIs, with a proven track record of delivering scalable, user-focused applications. Passionate about creating innovative software solutions and optimizing user experiences through clean code and intuitive design.</p>
     </section>
 
-    <!-- Education -->
     <section>
         <h2>Education</h2>
         <div class="card-container">
-            <div class="card">
-                <h3>Master of Computer Applications</h3>
-                <p>Chandigarh University, Mohali, Punjab</p>
-                <p>08/2023 - Present</p>
-            </div>
-            <div class="card">
-                <h3>Bachelor of Science (Chemistry)</h3>
-                <p>Anjabit Singh College, Bikramganj, Bihar</p>
-                <p>08/2018 - 09/2022</p>
-            </div>
+            <div class="card"><h3>Master of Computer Applications</h3><p>Chandigarh University, Mohali, Punjab</p><p>08/2023 - Present</p></div>
+            <div class="card"><h3>Bachelor of Science (Chemistry)</h3><p>Anjabit Singh College, Bikramganj, Bihar</p><p>08/2018 - 09/2022</p></div>
         </div>
     </section>
 
-    <!-- Skills -->
     <section>
         <h2>Skills</h2>
         <div class="card-container">
-            <div class="card">
-                <h3>Programming Languages</h3>
-                <ul>
-                    <li>C++</li>
-                    <li>Dart</li>
-                    <li>Java</li>
-                    <li>Python</li>
-                    <li>Kotlin</li>
-                    <li>JavaScript</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Databases & Tools</h3>
-                <ul>
-                    <li>SQLite</li>
-                    <li>MySQL</li>
-                    <li>Firebase</li>
-                    <li>MongoDB</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Frameworks & Concepts</h3>
-                <ul>
-                    <li>Flutter</li>
-                    <li>REST APIs</li>
-                    <li>Git</li>
-                    <li>OOP</li>
-                    <li>MVVM</li>
-                </ul>
-            </div>
+            <div class="card"><h3>Programming Languages</h3><ul><li>C++</li><li>Dart</li><li>Java</li><li>Python</li><li>Kotlin</li><li>JavaScript</li></ul></div>
+            <div class="card"><h3>Databases & Tools</h3><ul><li>SQLite</li><li>MySQL</li><li>Firebase</li><li>MongoDB</li></ul></div>
+            <div class="card"><h3>Frameworks & Concepts</h3><ul><li>Flutter</li><li>REST APIs</li><li>Git</li><li>OOP</li><li>MVVM</li></ul></div>
         </div>
     </section>
 
-    <!-- Projects -->
     <section>
         <h2>Projects</h2>
         <div class="card-container">
@@ -335,6 +259,23 @@
                     <li>Real-time weather app with public API.</li>
                     <li>Location-based updates for 50+ searches.</li>
                     <li>Dynamic, responsive UI.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Medicine Reminder</h3>
+                <ul>
+                    <li>Users can set up reminders for their medicines with custom time and frequency.</li>
+                    <li>Timely alerts using Flutter Local Notifications to ensure users never miss a dose.</li>
+                    <li>Secure user login with Firebase Authentication.</li>
+                    <li>Medicine details and reminders are stored in Firestore for seamless data management.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>QR Code Scanner</h3>
+                <ul>
+                    <li>Instantly generate QR codes for text, links, and other data.</li>
+                    <li>Scan QR codes using the device’s camera and extract the embedded information.</li>
+                    <li>SKeep track of scanned QR codes for easy access.</li>
                 </ul>
             </div>
         </div>
