@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepankar Singh - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #5e72e4, #a777e3);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            animation: shimmer 8s infinite;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite, scaleIn 1s ease;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            animation: slideInFromTop 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            animation: fadeInUp 1s ease 0.5s;
+            animation-fill-mode: backwards;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1.5rem;
+            font-size: 2rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) rotate(5deg);
+            color: #ffd700;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #5e72e4;
+            margin-bottom: 2.5rem;
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 5px;
+            background: #a777e3;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            animation: expandLine 1s ease;
+        }
+
+        /* Profile */
+        .profile p {
+            font-size: 1.2rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 1s ease;
+        }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: cardPop 1s ease forwards;
+            animation-delay: calc(var(--i) * 0.2s);
+        }
+
+        .card:nth-child(1) { --i: 1; }
+        .card:nth-child(2) { --i: 2; }
+        .card:nth-child(3) { --i: 3; }
+        .card:nth-child(4) { --i: 4; }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #5e72e4;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            margin: 0.8rem 0;
+            position: relative;
+            padding-left: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .card ul li::before {
+            content: '➔';
+            color: #a777e3;
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s;
+        }
+
+        .card:hover ul li {
+            color: #5e72e4;
+        }
+
+        .card:hover ul li::before {
+            transform: translateX(5px);
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            50% { transform: translateX(100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        @keyframes slideInFromTop {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes cardPop {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 4rem 1rem; }
+            .profile-img { width: 140px; height: 140px; }
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
+            section { padding: 3rem 1rem; }
+            h2 { font-size: 2.2rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="1.jpeg" alt="Deepankar Singh" class="profile-img">
+        <h1>Deepankar Singh</h1>
+        <p>Mobile App Developer | Flutter & Firebase Enthusiast</p>
+        <div class="social-links">
+            <a href="mailto:deepankarsingh1@gmail.com">✉️</a>
+            <a href="https://github.com/deepankar0611" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/deepankar0611" target="_blank">LinkedIn</a>
+            <a href="tel:+917479519946">📞</a>
+        </div>
+    </header>
+
+    <!-- Profile -->
+    <section class="profile">
+        <h2>About Me</h2>
+        <p>Dynamic MCA graduate and Mobile App Developer with expertise in Flutter and Firebase. Skilled in Python, Java, and REST APIs, with a proven track record of delivering scalable, user-focused applications. Passionate about creating innovative software solutions and optimizing user experiences through clean code and intuitive design.</p>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <h2>Education</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Master of Computer Applications</h3>
+                <p>Chandigarh University, Mohali, Punjab</p>
+                <p>08/2023 - Present</p>
+            </div>
+            <div class="card">
+                <h3>Bachelor of Science (Chemistry)</h3>
+                <p>Anjabit Singh College, Bikramganj, Bihar</p>
+                <p>08/2018 - 09/2022</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <h2>Skills</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Programming Languages</h3>
+                <ul>
+                    <li>C++</li>
+                    <li>Dart</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>Kotlin</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Databases & Tools</h3>
+                <ul>
+                    <li>SQLite</li>
+                    <li>MySQL</li>
+                    <li>Firebase</li>
+                    <li>MongoDB</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Frameworks & Concepts</h3>
+                <ul>
+                    <li>Flutter</li>
+                    <li>REST APIs</li>
+                    <li>Git</li>
+                    <li>OOP</li>
+                    <li>MVVM</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <h2>Projects</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Globe Gaze</h3>
+                <ul>
+                    <li>Flutter-based travel app with Firebase integration.</li>
+                    <li>Real-time data syncing for 100+ mock users.</li>
+                    <li>Top 10% at Chandigarh University Project Expo.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Settle Up</h3>
+                <ul>
+                    <li>Cross-platform finance app with Flutter & Firebase.</li>
+                    <li>95% positive feedback in user testing (50+ participants).</li>
+                    <li>Real-time data sync across devices.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>To-Do Website</h3>
+                <ul>
+                    <li>Task management web app with Firebase Auth.</li>
+                    <li>Hosted live at <a href="http://expeiment-6ac9b.firebaseapp.com" target="_blank">expeiment-6ac9b.firebaseapp.com</a>.</li>
+                    <li>Encrypted data storage for security.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Weather Fetching Website</h3>
+                <ul>
+                    <li>Real-time weather app with public API.</li>
+                    <li>Location-based updates for 50+ searches.</li>
+                    <li>Dynamic, responsive UI.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
